@@ -1,29 +1,33 @@
 package com.Manpreet.ProjectAssignment;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class TestBase {
 	public static WebDriver driver;
-	private final String DEFAULT_BROWSER = "Chrome";
+	private final Browser DEFAULT_BROWSER = Browser.FIREFOX;
 
 	public void initialisation() {
-		switch (DEFAULT_BROWSER.toUpperCase()) {
-		case "CHROME":
-			driver = WebDriverManager.chromedriver().create();
+		switch (DEFAULT_BROWSER) {
+		case CHROME:
+			driver = new ChromeDriver();
 			break;
-		case "EDGE":
-			driver = WebDriverManager.edgedriver().create();
+		case EDGE:
+			driver = new EdgeDriver();
 			break;
-		case "FIREFOX":
-			driver = WebDriverManager.firefoxdriver().create();
+		case FIREFOX:
+			driver = new FirefoxDriver();
 			break;
 		default:
 			throw new IllegalArgumentException();
 		}
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
+
 	}
 
 	public void tearDown() {

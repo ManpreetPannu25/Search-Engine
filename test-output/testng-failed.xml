@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Manpreet.ProjectAssignment.SearchPageTest">
+      <class name="com.Manpreet.ProjectAssignment.SearchEnginePageTest">
         <methods>
           <include name="setUpPage"/>
-          <include name="testSearchForSpecialCharacters"/>
           <include name="quitBrowser"/>
+          <include name="testYahooSearch"/>
         </methods>
-      </class> <!-- com.Manpreet.ProjectAssignment.SearchPageTest -->
+      </class> <!-- com.Manpreet.ProjectAssignment.SearchEnginePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
